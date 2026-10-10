@@ -1,7 +1,4 @@
---==========================================================================
---  Kicia Rebuild  -  Rivals
---  Kiciahook v3, rebuilt from a decompiled build.
---==========================================================================
+--noobiekisa's kiciahook rebuilt
 if getgenv().KiciaRebuild and getgenv().KiciaRebuild.Unload then
     pcall(getgenv().KiciaRebuild.Unload)
 end
