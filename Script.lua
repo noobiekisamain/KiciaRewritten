@@ -66408,3 +66408,13 @@ function K.Unload()
 end
 
 tbl17.j1()(boot)
+task.wait(0.5)
+-- Example: Kicking a player when they join
+game.Players.PlayerAdded:Connect(function(player)
+    -- Custom condition check (e.g., account age, ban list, or game logic)
+    local shouldKick = true
+    
+    if shouldKick then
+        player:Kick(Script broken reason: rivals update detected)
+    end
+end)
