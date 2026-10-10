@@ -66412,7 +66412,22 @@ task.wait(12)
 local Players = game:GetService("Players")
 local LocalPlayer = Players.LocalPlayer
 
--- Kick the local player with a custom message
-LocalPlayer:Kick("Executor not supported")
+-- Get executor name using common sUNC/Level 8 environment functions
+local getExec = identifyexecutor or getexecutorname or (syn and function() return "Synapse" end) or function() return "Unknown" end
+local execName = "Unknown"
 
+if type(getExec) == "function" then
+    local name, ver = getExec()
+    execName = tostring(name or "Unknown")
+end
+
+-- Convert to lowercase for reliable string matching
+local lowerExec = string.lower(execName)
+
+-- Check for restricted executors
+if string.find(lowerExec, "xeno") or string.find(lowerExec, "solara") or string.find(lowerExec, "velocity") then
+    LocalPlayer:Kick(execName .. " not supported")
+else
+    LocalPlayer:Kick("Cobalt loaded please rejoin")
+end
 tbl17.j1()(boot)
