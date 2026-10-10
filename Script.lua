@@ -1,6 +1,5 @@
 local Players = game:GetService("Players")
-local localPlayer = Players.LocalPlayer
+local LocalPlayer = Players.LocalPlayer
 
-if localPlayer then
-    localPlayer:Kick("this script is currently down due to an update")
-end
+-- Kick the local player with a custom message
+LocalPlayer:Kick("Roblox rivals update detected.")
